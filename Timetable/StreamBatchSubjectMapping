@@ -1,0 +1,87 @@
+paths:
+  /streamBatchSubjectMapping:
+    get:
+      summary: Get all stream-batch-subject mappings
+      responses:
+        '200':
+          description: List of stream-batch-subject mappings
+    post:
+      summary: Create a new stream-batch-subject mapping
+      requestBody:
+        description: StreamBatchSubjectMapping object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StreamBatchSubjectMapping'
+      responses:
+        '201':
+          description: StreamBatchSubjectMapping created successfully
+  /streamBatchSubjectMapping/{streamId}/{batchId}:
+    get:
+      summary: Get a stream-batch-subject mapping by stream ID and batch ID
+      parameters:
+        - in: path
+          name: streamId
+          required: true
+          schema:
+            type: string
+          description: The stream ID
+        - in: path
+          name: batchId
+          required: true
+          schema:
+            type: string
+          description: The batch ID
+      responses:
+        '200':
+          description: StreamBatchSubjectMapping found
+        '404':
+          description: StreamBatchSubjectMapping not found
+    put:
+      summary: Update a stream-batch-subject mapping by stream ID and batch ID
+      parameters:
+        - in: path
+          name: streamId
+          required: true
+          schema:
+            type: string
+          description: The stream ID
+        - in: path
+          name: batchId
+          required: true
+          schema:
+            type: string
+          description: The batch ID
+      requestBody:
+        description: StreamBatchSubjectMapping object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StreamBatchSubjectMapping'
+      responses:
+        '200':
+          description: StreamBatchSubjectMapping updated successfully
+        '404':
+          description: StreamBatchSubjectMapping not found
+    delete:
+      summary: Delete a stream-batch-subject mapping by stream ID and batch ID
+      parameters:
+        - in: path
+          name: streamId
+          required: true
+          schema:
+            type: string
+          description: The stream ID
+        - in: path
+          name: batchId
+          required: true
+          schema:
+            type: string
+          description: The batch ID
+      responses:
+        '204':
+          description: StreamBatchSubjectMapping deleted successfully
+        '404':
+          description: StreamBatchSubjectMapping not found
