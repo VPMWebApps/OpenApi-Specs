@@ -1,1 +1,324 @@
 
+openapi: 3.0.3
+info:
+  title: Academic Scheduling API
+  version: 1.0.0
+components:
+  schemas:
+    Calendar:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        day:
+          type: string
+          example: "Monday"
+        date:
+          type: integer
+          example: 12
+        month:
+          type: string
+          example: "January"
+        year:
+          type: integer
+          example: 1991
+        shifts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Shift'
+      required:
+        - id
+        - day
+        - date
+        - month
+        - year
+        - shifts
+
+    Break:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174012"
+        startTime:
+          type: string
+          format: time
+          example: "10:30:00"
+        endTime:
+          type: string
+          format: time
+          example: "10:45:00"
+        duration:
+          type: integer
+          example: 15  # Duration in minutes
+      required:
+        - id
+        - startTime
+        - endTime
+        - duration
+
+    Shift:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174011"
+        shiftNumber:
+          type: integer
+          example: 1
+        timeSlots:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSlot'
+      required:
+        - id
+        - shiftNumber
+        - timeSlots
+
+    TimeSlot:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174010"
+        slotNumber:
+          type: integer
+          example: 1
+        startTime:
+          type: string
+          format: time
+          example: "09:00:00"
+        endTime:
+          type: string
+          format: time
+          example: "10:30:00"
+        content:
+          oneOf:
+            - $ref: '#/components/schemas/Lecture'
+            - $ref: '#/components/schemas/Break'
+          description: The content of the time slot can be either a lecture or a break, but not both.
+      required:
+        - id
+        - slotNumber
+        - startTime
+        - endTime
+        - content
+
+    Lecture:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174002"
+        subject:
+          $ref: '#/components/schemas/Subject'
+        classroom:
+          $ref: '#/components/schemas/Classroom'
+        professor:
+          $ref: '#/components/schemas/Professor'
+        batch:
+          $ref: '#/components/schemas/Batch'
+        division:
+          $ref: '#/components/schemas/Division'
+      required:
+        - id
+        - subject
+        - classroom
+        - professor
+        - batch
+        - division
+
+    Professor:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174003"
+        name:
+          type: string
+          example: "Dr. John Doe"
+        stream:
+          $ref: '#/components/schemas/Stream'
+        designation:
+          type: string
+          example: "Associate Professor"
+        emailId:
+          type: string
+          format: email
+          example: "john.doe@example.com"
+        phoneNumber:
+          type: string
+          example: "+1234567890"
+      required:
+        - id
+        - name
+        - stream
+        - designation
+        - emailId
+
+    Subject:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174004"
+        name:
+          type: string
+          example: "Introduction to Computer Science"
+        stream:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stream'
+      required:
+        - id
+        - name
+        - stream
+
+    Classroom:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174005"
+        floor:
+          type: integer
+          example: 1
+        roomNo:
+          type: integer
+          example: 101
+      required:
+        - id
+        - floor
+        - roomNo
+
+    Year:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174006"
+        year:
+          type: string
+          example: "FY"
+      required:
+        - id
+        - year
+
+    Division:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174007"
+        division:
+          type: string
+          example: "A"
+      required:
+        - id
+        - division
+
+    Stream:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174008"
+        stream:
+          type: string
+          example: "BSC"
+        specialisation:
+          type: string
+          example: "IT"
+      required:
+        - id
+        - stream
+        - specialisation
+
+    Batch:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174009"
+        year:
+          $ref: '#/components/schemas/Year'
+        stream:
+          $ref: '#/components/schemas/Stream'
+      required:
+        - id
+        - year
+        - stream
+
+    ProfessorStreamMapping:
+      type: object
+      properties:
+        professorId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174003"
+        streamId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174008"
+      required:
+        - professorId
+        - streamId
+
+    StreamSubjectMapping:
+      type: object
+      properties:
+        streamId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174008"
+        subjectIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          example:
+            - "123e4567-e89b-12d3-a456-426614174004"
+            - "123e4567-e89b-12d3-a456-426614174011"
+      required:
+        - streamId
+        - subjectIds
+
+    BatchSubjectMapping:
+      type: object
+      properties:
+        batchId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174009"
+        subjectIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          example:
+            - "123e4567-e89b-12d3-a456-426614174004"
+            - "123e4567-e89b-12d3-a456-426614174011"
+      required:
+        - batchId
+        - subjectIds
+
+  requestBodies:
+    Lecture:
+      description: Lecture object that needs to be added to the store
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Lecture'
