@@ -1,0 +1,69 @@
+paths:
+  /classroom:
+    get:
+      summary: Get all classrooms
+      responses:
+        '200':
+          description: List of classrooms
+    post:
+      summary: Create a new classroom
+      requestBody:
+        description: Classroom object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Classroom'
+      responses:
+        '201':
+          description: Classroom created successfully
+  /classroom/{id}:
+    get:
+      summary: Get a classroom by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The classroom ID
+      responses:
+        '200':
+          description: Classroom found
+        '404':
+          description: Classroom not found
+    put:
+      summary: Update a classroom by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The classroom ID
+      requestBody:
+        description: Classroom object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Classroom'
+      responses:
+        '200':
+          description: Classroom updated successfully
+        '404':
+          description: Classroom not found
+    delete:
+      summary: Delete a classroom by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The classroom ID
+      responses:
+        '204':
+          description: Classroom deleted successfully
+        '404':
+          description: Classroom not found
