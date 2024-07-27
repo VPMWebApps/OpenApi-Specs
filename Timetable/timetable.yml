@@ -124,15 +124,12 @@ components:
           $ref: '#/components/schemas/Professor'
         batch:
           $ref: '#/components/schemas/Batch'
-        division:
-          $ref: '#/components/schemas/Division'
       required:
         - id
         - subject
         - classroom
         - professor
         - batch
-        - division
 
     Professor:
       type: object
@@ -195,10 +192,13 @@ components:
         roomNo:
           type: integer
           example: 101
+        division:
+          $ref: '#/components/schemas/Division'
       required:
         - id
         - floor
         - roomNo
+        - division  
 
     Year:
       type: object
