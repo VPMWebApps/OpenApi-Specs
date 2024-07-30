@@ -1,11 +1,15 @@
 paths:
   /calendar:
     get:
+      tags:
+        - A. College Calendar
       summary: Get all calendars
       responses:
         '200':
           description: List of calendars
     post:
+      tags:
+        - A. College Calendar
       summary: Create a new calendar
       requestBody:
         description: Calendar object that needs to be created
@@ -19,6 +23,8 @@ paths:
           description: Calendar created successfully
   /calendar/{id}:
     get:
+      tags:
+        - A. College Calendar
       summary: Get a calendar by ID
       parameters:
         - in: path
@@ -33,6 +39,8 @@ paths:
         '404':
           description: Calendar not found
     put:
+      tags:
+        - A. College Calendar
       summary: Update a calendar by ID
       parameters:
         - in: path
@@ -54,6 +62,8 @@ paths:
         '404':
           description: Calendar not found
     delete:
+      tags:
+        - A. College Calendar
       summary: Delete a calendar by ID
       parameters:
         - in: path

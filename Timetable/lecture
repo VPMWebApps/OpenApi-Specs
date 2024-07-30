@@ -1,11 +1,15 @@
 paths:
   /lecture:
     get:
+      tags:
+        - F. College Lecture
       summary: Get all lectures
       responses:
         '200':
           description: List of lectures
     post:
+      tags:
+        - F. College Lecture
       summary: Create a new lecture
       requestBody:
         description: Lecture object that needs to be created
@@ -19,6 +23,8 @@ paths:
           description: Lecture created successfully
   /lecture/{id}:
     get:
+      tags:
+        - F. College Lecture
       summary: Get a lecture by ID
       parameters:
         - in: path
@@ -33,6 +39,8 @@ paths:
         '404':
           description: Lecture not found
     put:
+      tags:
+        - F. College Lecture
       summary: Update a lecture by ID
       parameters:
         - in: path
@@ -54,6 +62,8 @@ paths:
         '404':
           description: Lecture not found
     delete:
+      tags:
+        - F. College Lecture
       summary: Delete a lecture by ID
       parameters:
         - in: path

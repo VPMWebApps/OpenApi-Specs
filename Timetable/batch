@@ -1,11 +1,15 @@
 paths:
   /batch:
     get:
+      tags:
+        - C. College Batch
       summary: Get all batches
       responses:
         '200':
           description: List of batches
     post:
+      tags:
+        - C. College Batch
       summary: Create a new batch
       requestBody:
         description: Batch object that needs to be created
@@ -19,6 +23,8 @@ paths:
           description: Batch created successfully
   /batch/{id}:
     get:
+      tags:
+        - C. College Batch
       summary: Get a batch by ID
       parameters:
         - in: path
@@ -33,6 +39,8 @@ paths:
         '404':
           description: Batch not found
     put:
+      tags:
+        - C. College Batch
       summary: Update a batch by ID
       parameters:
         - in: path
@@ -54,6 +62,8 @@ paths:
         '404':
           description: Batch not found
     delete:
+      tags:
+        - C. College Batch
       summary: Delete a batch by ID
       parameters:
         - in: path

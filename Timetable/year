@@ -1,11 +1,15 @@
 paths:
   /year:
     get:
+      tags:
+        - L. College Year
       summary: Get all years
       responses:
         '200':
           description: List of years
     post:
+      tags:
+        - L. College Year
       summary: Create a new year
       requestBody:
         description: Year object that needs to be created
@@ -19,6 +23,8 @@ paths:
           description: Year created successfully
   /year/{id}:
     get:
+      tags:
+        - L. College Year
       summary: Get a year by ID
       parameters:
         - in: path
@@ -33,6 +39,8 @@ paths:
         '404':
           description: Year not found
     put:
+      tags:
+        - L. College Year
       summary: Update a year by ID
       parameters:
         - in: path
@@ -54,6 +62,8 @@ paths:
         '404':
           description: Year not found
     delete:
+      tags:
+        - L. College Year
       summary: Delete a year by ID
       parameters:
         - in: path

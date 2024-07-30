@@ -1,0 +1,1234 @@
+openapi: 3.0.3
+info:
+  title: Swagger Petstore - OpenAPI 3.0
+  description: College timetable app
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: https://petstore3.swagger.io/api/v3
+paths:
+
+  /calendar:
+    get:
+      tags:
+        - A. College Calendar
+      summary: Get all calendars
+      responses:
+        '200':
+          description: List of calendars
+    post:
+      tags:
+        - A. College Calendar
+      summary: Create a new calendar
+      requestBody:
+        description: Calendar object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Calendar'
+      responses:
+        '201':
+          description: Calendar created successfully
+  /calendar/{id}:
+    get:
+      tags:
+        - A. College Calendar
+      summary: Get a calendar by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The calendar ID
+      responses:
+        '200':
+          description: Calendar found
+        '404':
+          description: Calendar not found
+    put:
+      tags:
+        - A. College Calendar
+      summary: Update a calendar by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The calendar ID
+      requestBody:
+        description: Calendar object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Calendar'
+      responses:
+        '200':
+          description: Calendar updated successfully
+        '404':
+          description: Calendar not found
+    delete:
+      tags:
+        - A. College Calendar
+      summary: Delete a calendar by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The calendar ID
+      responses:
+        '204':
+          description: Calendar deleted successfully
+        '404':
+          description: Calendar not found
+
+  /batch:
+    get:
+      tags:
+        - B. College Batch
+      summary: Get all batches
+      responses:
+        '200':
+          description: List of batches
+    post:
+      tags:
+        - B. College Batch
+      summary: Create a new batch
+      requestBody:
+        description: Batch object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Batch'
+      responses:
+        '201':
+          description: Batch created successfully
+  /batch/{id}:
+    get:
+      tags:
+        - B. College Batch
+      summary: Get a batch by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The batch ID
+      responses:
+        '200':
+          description: Batch found
+        '404':
+          description: Batch not found
+    put:
+      tags:
+        - B. College Batch
+      summary: Update a batch by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The batch ID
+      requestBody:
+        description: Batch object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Batch'
+      responses:
+        '200':
+          description: Batch updated successfully
+        '404':
+          description: Batch not found
+    delete:
+      tags:
+        - B. College Batch
+      summary: Delete a batch by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The batch ID
+      responses:
+        '204':
+          description: Batch deleted successfully
+        '404':
+          description: Batch not found
+
+  /division:
+    get:
+      tags:
+        - C. College Division
+      summary: Get all divisions
+      responses:
+        '200':
+          description: List of divisions
+    post:
+      tags:
+        - C. College Division
+      summary: Create a new division
+      requestBody:
+        description: Division object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Division'
+      responses:
+        '201':
+          description: Division created successfully
+  /division/{id}:
+    get:
+      tags:
+        - C. College Division
+      summary: Get a division by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The division ID
+      responses:
+        '200':
+          description: Division found
+        '404':
+          description: Division not found
+    put:
+      tags:
+        - C. College Division
+      summary: Update a division by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The division ID
+      requestBody:
+        description: Division object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Division'
+      responses:
+        '200':
+          description: Division updated successfully
+        '404':
+          description: Division not found
+    delete:
+      tags:
+        - C. College Division
+      summary: Delete a division by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The division ID
+      responses:
+        '204':
+          description: Division deleted successfully
+        '404':
+          description: Division not found
+
+  /classroom:
+    get:
+      tags:
+        - D. College Classroom
+      summary: Get all classrooms
+      responses:
+        '200':
+          description: List of classrooms
+    post:
+      tags:
+        - D. College Classroom
+      summary: Create a new classroom
+      requestBody:
+        description: Classroom object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Classroom'
+      responses:
+        '201':
+          description: Classroom created successfully
+  /classroom/{id}:
+    get:
+      tags:
+        - D. College Classroom
+      summary: Get a classroom by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The classroom ID
+      responses:
+        '200':
+          description: Classroom found
+        '404':
+          description: Classroom not found
+    put:
+      tags:
+        - D. College Classroom
+      summary: Update a classroom by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The classroom ID
+      requestBody:
+        description: Classroom object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Classroom'
+      responses:
+        '200':
+          description: Classroom updated successfully
+        '404':
+          description: Classroom not found
+    delete:
+      tags:
+        - D. College Classroom
+      summary: Delete a classroom by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The classroom ID
+      responses:
+        '204':
+          description: Classroom deleted successfully
+        '404':
+          description: Classroom not found
+
+  /lecture:
+    get:
+      tags:
+        - E. College Lecture
+      summary: Get all lectures
+      responses:
+        '200':
+          description: List of lectures
+    post:
+      tags:
+        - E. College Lecture
+      summary: Create a new lecture
+      requestBody:
+        description: Lecture object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lecture'
+      responses:
+        '201':
+          description: Lecture created successfully
+  /lecture/{id}:
+    get:
+      tags:
+        - E. College Lecture
+      summary: Get a lecture by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The lecture ID
+      responses:
+        '200':
+          description: Lecture found
+        '404':
+          description: Lecture not found
+    put:
+      tags:
+        - E. College Lecture
+      summary: Update a lecture by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The lecture ID
+      requestBody:
+        description: Lecture object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lecture'
+      responses:
+        '200':
+          description: Lecture updated successfully
+        '404':
+          description: Lecture not found
+    delete:
+      tags:
+        - E. College Lecture
+      summary: Delete a lecture by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The lecture ID
+      responses:
+        '204':
+          description: Lecture deleted successfully
+        '404':
+          description: Lecture not found
+
+  /professor:
+    get:
+      tags:
+        - F. College Professor
+      summary: Get all professors
+      responses:
+        '200':
+          description: List of professors
+    post:
+      tags:
+        - F. College Professor
+      summary: Create a new professor
+      requestBody:
+        description: Professor object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Professor'
+      responses:
+        '201':
+          description: Professor created successfully
+  /professor/{id}:
+    get:
+      tags:
+        - F. College Professor
+      summary: Get a professor by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The professor ID
+      responses:
+        '200':
+          description: Professor found
+        '404':
+          description: Professor not found
+    put:
+      tags:
+        - F. College Professor
+      summary: Update a professor by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The professor ID
+      requestBody:
+        description: Professor object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Professor'
+      responses:
+        '200':
+          description: Professor updated successfully
+        '404':
+          description: Professor not found
+    delete:
+      tags:
+        - F. College Professor
+      summary: Delete a professor by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The professor ID
+      responses:
+        '204':
+          description: Professor deleted successfully
+        '404':
+          description: Professor not found
+
+  /shift:
+    get:
+      tags:
+        - G. College Shift
+      summary: Get all shifts
+      responses:
+        '200':
+          description: List of shifts
+    post:
+      tags:
+        - G. College Shift
+      summary: Create a new shift
+      requestBody:
+        description: Shift object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Shift'
+      responses:
+        '201':
+          description: Shift created successfully
+  /shift/{id}:
+    get:
+      tags:
+        - G. College Shift
+      summary: Get a shift by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The shift ID
+      responses:
+        '200':
+          description: Shift found
+        '404':
+          description: Shift not found
+    put:
+      tags:
+        - G. College Shift
+      summary: Update a shift by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The shift ID
+      requestBody:
+        description: Shift object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Shift'
+      responses:
+        '200':
+          description: Shift updated successfully
+        '404':
+          description: Shift not found
+    delete:
+      tags:
+        - G. College Shift
+      summary: Delete a shift by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The shift ID
+      responses:
+        '204':
+          description: Shift deleted successfully
+        '404':
+          description: Shift not found
+
+  /stream:
+    get:
+      tags:
+        - H. College Stream
+      summary: Get all streams
+      responses:
+        '200':
+          description: List of streams
+    post:
+      tags:
+        - H. College Stream
+      summary: Create a new stream
+      requestBody:
+        description: Stream object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stream'
+      responses:
+        '201':
+          description: Stream created successfully
+  /stream/{id}:
+    get:
+      tags:
+        - H. College Stream
+      summary: Get a stream by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The stream ID
+      responses:
+        '200':
+          description: Stream found
+        '404':
+          description: Stream not found
+    put:
+      tags:
+        - H. College Stream
+      summary: Update a stream by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The stream ID
+      requestBody:
+        description: Stream object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stream'
+      responses:
+        '200':
+          description: Stream updated successfully
+        '404':
+          description: Stream not found
+    delete:
+      tags:
+        - H. College Stream
+      summary: Delete a stream by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The stream ID
+      responses:
+        '204':
+          description: Stream deleted successfully
+        '404':
+          description: Stream not found
+
+  /subject:
+    get:
+      tags:
+        - I. College Subject
+      summary: Get all subjects
+      responses:
+        '200':
+          description: List of subjects
+    post:
+      tags:
+        - I. College Subject
+      summary: Create a new subject
+      requestBody:
+        description: Subject object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Subject'
+      responses:
+        '201':
+          description: Subject created successfully
+  /subject/{id}:
+    get:
+      tags:
+        - I. College Subject
+      summary: Get a subject by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The subject ID
+      responses:
+        '200':
+          description: Subject found
+        '404':
+          description: Subject not found
+    put:
+      tags:
+        - I. College Subject
+      summary: Update a subject by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The subject ID
+      requestBody:
+        description: Subject object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Subject'
+      responses:
+        '200':
+          description: Subject updated successfully
+        '404':
+          description: Subject not found
+    delete:
+      tags:
+        - I. College Subject
+      summary: Delete a subject by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The subject ID
+      responses:
+        '204':
+          description: Subject deleted successfully
+        '404':
+          description: Subject not found
+
+  /timeslot:
+    get:
+      tags:
+        - J. College Timeslot
+      summary: Get all time slots
+      responses:
+        '200':
+          description: List of time slots
+    post:
+      tags:
+        - J. College Timeslot
+      summary: Create a new time slot
+      requestBody:
+        description: TimeSlot object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeSlot'
+      responses:
+        '201':
+          description: TimeSlot created successfully
+  /timeslot/{id}:
+    get:
+      tags:
+        - J. College Timeslot
+      summary: Get a time slot by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The time slot ID
+      responses:
+        '200':
+          description: TimeSlot found
+        '404':
+          description: TimeSlot not found
+    put:
+      tags:
+        - J. College Timeslot
+      summary: Update a time slot by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The time slot ID
+      requestBody:
+        description: TimeSlot object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeSlot'
+      responses:
+        '200':
+          description: TimeSlot updated successfully
+        '404':
+          description: TimeSlot not found
+    delete:
+      tags:
+        - J. College Timeslot
+      summary: Delete a time slot by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The time slot ID
+      responses:
+        '204':
+          description: TimeSlot deleted successfully
+        '404':
+          description: TimeSlot not found
+
+  /year:
+    get:
+      tags:
+        - K. College Year
+      summary: Get all years
+      responses:
+        '200':
+          description: List of years
+    post:
+      tags:
+        - K. College Year
+      summary: Create a new year
+      requestBody:
+        description: Year object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Year'
+      responses:
+        '201':
+          description: Year created successfully
+  /year/{id}:
+    get:
+      tags:
+        - K. College Year
+      summary: Get a year by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The year ID
+      responses:
+        '200':
+          description: Year found
+        '404':
+          description: Year not found
+    put:
+      tags:
+        - K. College Year
+      summary: Update a year by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The year ID
+      requestBody:
+        description: Year object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Year'
+      responses:
+        '200':
+          description: Year updated successfully
+        '404':
+          description: Year not found
+    delete:
+      tags:
+        - K. College Year
+      summary: Delete a year by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The year ID
+      responses:
+        '204':
+          description: Year deleted successfully
+        '404':
+          description: Year not found
+
+  /streamBatchSubjectMapping:
+    get:
+      tags:
+        - L. Stream Batch Subject Mapping
+      summary: Get all stream-batch-subject mappings
+      responses:
+        '200':
+          description: List of stream-batch-subject mappings
+    post:
+      tags:
+        - L. Stream Batch Subject Mapping
+      summary: Create a new stream-batch-subject mapping
+      requestBody:
+        description: StreamBatchSubjectMapping object that needs to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StreamBatchSubjectMapping'
+      responses:
+        '201':
+          description: StreamBatchSubjectMapping created successfully
+  /streamBatchSubjectMapping/{streamId}/{batchId}:
+    get:
+      tags:
+        - L. Stream Batch Subject Mapping
+      summary: Get a stream-batch-subject mapping by stream ID and batch ID
+      parameters:
+        - in: path
+          name: streamId
+          required: true
+          schema:
+            type: string
+          description: The stream ID
+        - in: path
+          name: batchId
+          required: true
+          schema:
+            type: string
+          description: The batch ID
+      responses:
+        '200':
+          description: StreamBatchSubjectMapping found
+        '404':
+          description: StreamBatchSubjectMapping not found
+    put:
+      tags:
+        - L. Stream Batch Subject Mapping
+      summary: Update a stream-batch-subject mapping by stream ID and batch ID
+      parameters:
+        - in: path
+          name: streamId
+          required: true
+          schema:
+            type: string
+          description: The stream ID
+        - in: path
+          name: batchId
+          required: true
+          schema:
+            type: string
+          description: The batch ID
+      requestBody:
+        description: StreamBatchSubjectMapping object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StreamBatchSubjectMapping'
+      responses:
+        '200':
+          description: StreamBatchSubjectMapping updated successfully
+        '404':
+          description: StreamBatchSubjectMapping not found
+    delete:
+      tags:
+        - L. Stream Batch Subject Mapping
+      summary: Delete a stream-batch-subject mapping by stream ID and batch ID
+      parameters:
+        - in: path
+          name: streamId
+          required: true
+          schema:
+            type: string
+          description: The stream ID
+        - in: path
+          name: batchId
+          required: true
+          schema:
+            type: string
+          description: The batch ID
+      responses:
+        '204':
+          description: StreamBatchSubjectMapping deleted successfully
+        '404':
+          description: StreamBatchSubjectMapping not found
+
+
+
+
+
+components:
+  schemas:
+    Calendar:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        day:
+          type: string
+          example: "Monday"
+        date:
+          type: integer
+          example: 12
+        month:
+          type: string
+          example: "January"
+        year:
+          type: integer
+          example: 1991
+        shifts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Shift'
+        holiday:
+          type: string
+          example: "Public,emergency,vacation"
+      required:
+        - id
+        - day
+        - date
+        - month
+        - year
+        - shifts
+  
+    Shift:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174011"
+        shiftNumber:
+          type: integer
+          example: 1
+        timeSlots:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSlot'
+      required:
+        - id
+        - shiftNumber
+        - timeSlots
+
+    TimeSlot:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174010"
+        slotType:
+          type: string
+          example: "break, lecture, practicle"
+        startTime:
+          type: string
+          format: time
+          example: "09:00:00"
+        endTime:
+          type: string
+          format: time
+          example: "10:30:00"
+        lecture:
+          $ref: '#/components/schemas/Lecture'
+      required:
+        - id
+        - slotNumber
+        - startTime
+        - endTime
+
+    Lecture:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174002"
+        lectureType:
+          type: string
+          example: "Theory, Practical, Guest Lecture"
+        subject:
+          $ref: '#/components/schemas/Subject'
+        classroom:
+          $ref: '#/components/schemas/Classroom'
+        professor:
+          $ref: '#/components/schemas/Professor'
+        batch:
+          $ref: '#/components/schemas/Batch'
+        division:
+          $ref: '#/components/schemas/Division'
+      required:
+        - id
+        - subject
+        - classroom
+        - professor
+        - batch
+
+    Professor:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174003"
+        name:
+          type: string
+          example: "Dr. John Doe"
+        stream:
+          $ref: '#/components/schemas/Stream'
+        designation:
+          type: string
+          example: "Associate Professor"
+        emailId:
+          type: string
+          format: email
+          example: "john.doe@example.com"
+        phoneNumber:
+          type: string
+          example: "+1234567890"
+      required:
+        - id
+        - name
+        - stream
+        - designation
+        - emailId
+
+    Subject:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174004"
+        name:
+          type: string
+          example: "Introduction to Computer Science"
+      required:
+        - id
+        - name
+
+    Classroom:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174005"
+        floor:
+          type: integer
+          example: 1
+        roomNo:
+          type: integer
+          example: 101
+      required:
+        - id
+        - floor
+        - roomNo
+
+    Year:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174006"
+        year:
+          type: string
+          example: "FY"
+      required:
+        - id
+        - year
+
+    Division:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174007"
+        division:
+          type: string
+          example: "A"
+      required:
+        - id
+        - division
+    Batch:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174009"
+        year:
+          $ref: '#/components/schemas/Year'
+      required:
+        - id
+        - year
+
+    Stream:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174008"
+        name:
+          type: string
+          example: "BSC"
+        specialisation:
+          type: string
+          example: "IT"
+        batch:  
+          $ref: '#/components/schemas/Batch'
+      required:
+        - id
+        - specialisation
+
+
+    StreamBatchSubjectMapping:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174008"
+        batch:
+          $ref: '#/components/schemas/Batch'
+        subject:
+          type: array
+          items: 
+            $ref: '#/components/schemas/Subject'
+        stream:
+          $ref: '#/components/schemas/Stream'
+        
+        

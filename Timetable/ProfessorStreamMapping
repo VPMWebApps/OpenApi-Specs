@@ -1,11 +1,15 @@
 paths:
   /professorStreamMapping:
     get:
+      tags:
+        - M. Professor Stream Mapping
       summary: Get all professor-stream mappings
       responses:
         '200':
           description: List of professor-stream mappings
-    post:
+    post:  
+      tags:
+        - M. Professor Stream Mapping
       summary: Create a new professor-stream mapping
       requestBody:
         description: ProfessorStreamMapping object that needs to be created
@@ -18,7 +22,9 @@ paths:
         '201':
           description: ProfessorStreamMapping created successfully
   /professorStreamMapping/{professorId}/{streamId}:
-    get:
+    get:  
+      tags:
+        - M. Professor Stream Mapping
       summary: Get a professor-stream mapping by professor ID and stream ID
       parameters:
         - in: path
@@ -39,6 +45,8 @@ paths:
         '404':
           description: ProfessorStreamMapping not found
     put:
+      tags:
+        - M. Professor Stream Mapping
       summary: Update a professor-stream mapping by professor ID and stream ID
       parameters:
         - in: path
@@ -66,6 +74,8 @@ paths:
         '404':
           description: ProfessorStreamMapping not found
     delete:
+      tags:
+        - M. Professor Stream Mapping
       summary: Delete a professor-stream mapping by professor ID and stream ID
       parameters:
         - in: path

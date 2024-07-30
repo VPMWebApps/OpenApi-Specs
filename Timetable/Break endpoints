@@ -1,11 +1,15 @@
 paths:
   /break:
     get:
+      tags:
+        - B. College Break
       summary: Get all breaks
       responses:
         '200':
           description: List of breaks
     post:
+      tags:
+        - B. College Break
       summary: Create a new break
       requestBody:
         description: Break object that needs to be created
@@ -19,6 +23,8 @@ paths:
           description: Break created successfully
   /break/{id}:
     get:
+      tags:
+        - B. College Break
       summary: Get a break by ID
       parameters:
         - in: path
@@ -33,6 +39,8 @@ paths:
         '404':
           description: Break not found
     put:
+      tags:
+        - B. College Break
       summary: Update a break by ID
       parameters:
         - in: path
@@ -54,6 +62,8 @@ paths:
         '404':
           description: Break not found
     delete:
+      tags:
+        - B. College Break
       summary: Delete a break by ID
       parameters:
         - in: path

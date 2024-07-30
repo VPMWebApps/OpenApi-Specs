@@ -1,11 +1,15 @@
 paths:
   /timeslot:
     get:
+      tags:
+        - K. College Timeslot
       summary: Get all time slots
       responses:
         '200':
           description: List of time slots
     post:
+      tags:
+        - K. College Timeslot
       summary: Create a new time slot
       requestBody:
         description: TimeSlot object that needs to be created
@@ -19,6 +23,8 @@ paths:
           description: TimeSlot created successfully
   /timeslot/{id}:
     get:
+      tags:
+        - K. College Timeslot
       summary: Get a time slot by ID
       parameters:
         - in: path
@@ -33,6 +39,8 @@ paths:
         '404':
           description: TimeSlot not found
     put:
+      tags:
+        - K. College Timeslot
       summary: Update a time slot by ID
       parameters:
         - in: path
@@ -54,6 +62,8 @@ paths:
         '404':
           description: TimeSlot not found
     delete:
+      tags:
+        - K. College Timeslot
       summary: Delete a time slot by ID
       parameters:
         - in: path
