@@ -95,85 +95,6 @@ paths:
         '404':
           description: Calendar not found
 
-  /batch:
-    get:
-      tags:
-        - B. College Batch
-      summary: Get all batches
-      responses:
-        '200':
-          description: List of batches
-    post:
-      tags:
-        - B. College Batch
-      summary: Create a new batch
-      requestBody:
-        description: Batch object that needs to be created
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Batch'
-      responses:
-        '201':
-          description: Batch created successfully
-  /batch/{id}:
-    get:
-      tags:
-        - B. College Batch
-      summary: Get a batch by ID
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: string
-          description: The batch ID
-      responses:
-        '200':
-          description: Batch found
-        '404':
-          description: Batch not found
-    put:
-      tags:
-        - B. College Batch
-      summary: Update a batch by ID
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: string
-          description: The batch ID
-      requestBody:
-        description: Batch object that needs to be updated
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Batch'
-      responses:
-        '200':
-          description: Batch updated successfully
-        '404':
-          description: Batch not found
-    delete:
-      tags:
-        - B. College Batch
-      summary: Delete a batch by ID
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: string
-          description: The batch ID
-      responses:
-        '204':
-          description: Batch deleted successfully
-        '404':
-          description: Batch not found
-
   /division:
     get:
       tags:
@@ -1083,8 +1004,6 @@ components:
           $ref: '#/components/schemas/Classroom'
         professor:
           $ref: '#/components/schemas/Professor'
-        batch:
-          $ref: '#/components/schemas/Batch'
         division:
           $ref: '#/components/schemas/Division'
       required:
@@ -1092,7 +1011,6 @@ components:
         - subject
         - classroom
         - professor
-        - batch
 
     Professor:
       type: object
@@ -1182,19 +1100,7 @@ components:
       required:
         - id
         - division
-    Batch:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          example: "123e4567-e89b-12d3-a456-426614174009"
-        year:
-          $ref: '#/components/schemas/Year'
-      required:
-        - id
-        - year
-
+    
     Stream:
       type: object
       properties:
@@ -1208,12 +1114,11 @@ components:
         specialisation:
           type: string
           example: "IT"
-        batch:  
-          $ref: '#/components/schemas/Batch'
+        year:  
+          $ref: '#/components/schemas/Year'
       required:
         - id
         - specialisation
-
 
     StreamBatchSubjectMapping:
       type: object
