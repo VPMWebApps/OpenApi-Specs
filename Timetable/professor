@@ -1,11 +1,15 @@
 paths:
   /professor:
     get:
+      tags:
+        - G. College Professor
       summary: Get all professors
       responses:
         '200':
           description: List of professors
     post:
+      tags:
+        - G. College Professor
       summary: Create a new professor
       requestBody:
         description: Professor object that needs to be created
@@ -19,6 +23,8 @@ paths:
           description: Professor created successfully
   /professor/{id}:
     get:
+      tags:
+        - G. College Professor
       summary: Get a professor by ID
       parameters:
         - in: path
@@ -33,6 +39,8 @@ paths:
         '404':
           description: Professor not found
     put:
+      tags:
+        - G. College Professor
       summary: Update a professor by ID
       parameters:
         - in: path
@@ -54,6 +62,8 @@ paths:
         '404':
           description: Professor not found
     delete:
+      tags:
+        - G. College Professor
       summary: Delete a professor by ID
       parameters:
         - in: path

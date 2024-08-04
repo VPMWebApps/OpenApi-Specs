@@ -1,11 +1,15 @@
 paths:
   /classroom:
     get:
+      tags:
+        - E. College Classroom
       summary: Get all classrooms
       responses:
         '200':
           description: List of classrooms
     post:
+      tags:
+        - E. College Classroom
       summary: Create a new classroom
       requestBody:
         description: Classroom object that needs to be created
@@ -19,6 +23,8 @@ paths:
           description: Classroom created successfully
   /classroom/{id}:
     get:
+      tags:
+        - E. College Classroom
       summary: Get a classroom by ID
       parameters:
         - in: path
@@ -33,6 +39,8 @@ paths:
         '404':
           description: Classroom not found
     put:
+      tags:
+        - E. College Classroom
       summary: Update a classroom by ID
       parameters:
         - in: path
@@ -54,6 +62,8 @@ paths:
         '404':
           description: Classroom not found
     delete:
+      tags:
+        - E. College Classroom
       summary: Delete a classroom by ID
       parameters:
         - in: path

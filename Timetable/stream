@@ -1,11 +1,15 @@
 paths:
   /stream:
     get:
+      tags:
+        - I. College Stream
       summary: Get all streams
       responses:
         '200':
           description: List of streams
     post:
+      tags:
+        - I. College Stream
       summary: Create a new stream
       requestBody:
         description: Stream object that needs to be created
@@ -19,6 +23,8 @@ paths:
           description: Stream created successfully
   /stream/{id}:
     get:
+      tags:
+        - I. College Stream
       summary: Get a stream by ID
       parameters:
         - in: path
@@ -33,6 +39,8 @@ paths:
         '404':
           description: Stream not found
     put:
+      tags:
+        - I. College Stream
       summary: Update a stream by ID
       parameters:
         - in: path
@@ -54,6 +62,8 @@ paths:
         '404':
           description: Stream not found
     delete:
+      tags:
+        - I. College Stream
       summary: Delete a stream by ID
       parameters:
         - in: path

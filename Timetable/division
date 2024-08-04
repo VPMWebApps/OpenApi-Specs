@@ -1,11 +1,15 @@
 paths:
   /division:
     get:
+      tags:
+        - D. College Division
       summary: Get all divisions
       responses:
         '200':
           description: List of divisions
     post:
+      tags:
+        - D. College Division
       summary: Create a new division
       requestBody:
         description: Division object that needs to be created
@@ -19,6 +23,8 @@ paths:
           description: Division created successfully
   /division/{id}:
     get:
+      tags:
+        - D. College Division
       summary: Get a division by ID
       parameters:
         - in: path
@@ -33,6 +39,8 @@ paths:
         '404':
           description: Division not found
     put:
+      tags:
+        - D. College Division
       summary: Update a division by ID
       parameters:
         - in: path
@@ -54,6 +62,8 @@ paths:
         '404':
           description: Division not found
     delete:
+      tags:
+        - D. College Division
       summary: Delete a division by ID
       parameters:
         - in: path
