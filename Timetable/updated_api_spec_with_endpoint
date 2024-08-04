@@ -916,12 +916,14 @@ components:
           type: string
           format: uuid
           example: "123e4567-e89b-12d3-a456-426614174000"
-        day:
-          type: string
-          example: "Monday"
+        jsDate:
+          type: integer
         date:
           type: integer
           example: 12
+        dayOfWeek:
+          type: string
+          example: "Monday"
         month:
           type: string
           example: "January"
@@ -1127,8 +1129,8 @@ components:
           type: string
           format: uuid
           example: "123e4567-e89b-12d3-a456-426614174008"
-        batch:
-          $ref: '#/components/schemas/Batch'
+        year:
+          $ref: '#/components/schemas/Year'
         subject:
           type: array
           items: 

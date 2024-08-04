@@ -350,18 +350,6 @@ components:
       required:
         - id
         - division
-    Batch:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          example: "123e4567-e89b-12d3-a456-426614174009"
-        year:
-          $ref: '#/components/schemas/Year'
-      required:
-        - id
-        - year
 
     Stream:
       type: object
@@ -376,8 +364,8 @@ components:
         specialisation:
           type: string
           example: "IT"
-        batch:  
-          $ref: '#/components/schemas/Batch'
+        year:  
+          $ref: '#/components/schemas/Year'
       required:
         - id
         - specialisation
@@ -390,8 +378,8 @@ components:
           type: string
           format: uuid
           example: "123e4567-e89b-12d3-a456-426614174008"
-        batch:
-          $ref: '#/components/schemas/Batch'
+        year:
+          $ref: '#/components/schemas/Year'
         subject:
           type: array
           items: 
