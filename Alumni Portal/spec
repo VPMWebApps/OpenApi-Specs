@@ -1,0 +1,31 @@
+"/api/profiles/search": {
+  "get": {
+    "summary": "Search alumni by name",
+    "parameters": [
+      {
+        "name": "name",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Name of the alumnus to search"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "A list of alumni matching the search criteria",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Profile"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
