@@ -1,0 +1,198 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Student/Alumni Profile API",
+    "version": "1.0.0",
+    "description": "API for managing student and alumni profiles, with spotlight and mentorship features."
+  },
+  "paths": {
+    "/api/profiles": {
+      "get": {
+        "summary": "Get all profiles",
+        "parameters": [
+          {
+            "name": "role",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "student",
+                "alumnus"
+              ]
+            }
+          },
+          {
+            "name": "mentor",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of profiles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Profile"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new profile",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Profile"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Profile created successfully"
+          }
+        }
+      }
+    },
+    "/api/profiles/{profileId}/spotlight": {
+      "put": {
+        "summary": "Highlight an alumnus under the spotlight",
+        "parameters": [
+          {
+            "name": "profileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile updated as a spotlight alumnus"
+          }
+        }
+      }
+    },
+    "/api/profiles/{profileId}/mentor": {
+      "put": {
+        "summary": "Assign or remove mentor role for an alumnus",
+        "parameters": [
+          {
+            "name": "profileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "mentor",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Mentor role updated for the profile"
+          }
+        }
+      }
+    },
+    "/api/profiles/{profileId}": {
+      "get": {
+        "summary": "Get a specific profile by ID",
+        "parameters": [
+          {
+            "name": "profileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of the specific profile",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Profile"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a specific profile",
+        "parameters": [
+          {
+            "name": "profileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile deleted successfully"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Profile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "student",
+              "alumnus"
+            ]
+          },
+          "mentor": {
+            "type": "boolean"
+          },
+          "spotlight": {
+            "type": "boolean",
+            "description": "If true, the alumnus is highlighted under the spotlight"
+          },
+          "graduationYear": {
+            "type": "integer",
+            "nullable": true
+          },
+          "currentOccupation": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}
